@@ -36,6 +36,9 @@ async def get_shortlink(link):
     url = 'https://shrinkme.io/api'
     params = {'api': API_KEY, 'url': link}
 
+    url = 'https://shrinkme.io/api' 
+    params = {'api': API_KEY, 'url': link}
+
     async with aiohttp.ClientSession() as session:
         async with session.get(url, params=params, raise_for_status=True) as response:
             data = await response.json()
