@@ -22,7 +22,7 @@ async def start(bot, message):
         "I'm link bot. Just send me link and get short link")
 
 
-@bot.on_message(filters.regex(r'https?://[^\s]+') (r'https?://[^\s]+') (r'https?://[^\s]+') & filters.private)
+@bot.on_message(filters.regex(r'https?://[^\s]+', r'https?://[^\s]+') & filters.private)
 async def link_handler(bot, message):
     link = message.matches[0].group(0)
     try:
@@ -31,14 +31,6 @@ async def link_handler(bot, message):
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
-async def get_shortlink(link):
-    url = 'https://shrinkme.io/api'
-    params = {'api': API_KEY, 'url': link}
-
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url, params=params, raise_for_status=True) as response:
-            data = await response.json()
-            return data["shortenedUrl"]
 async def get_shortlink(link):
     url = 'https://shrinkme.io/api'
     params = {'api': API_KEY, 'url': link}
