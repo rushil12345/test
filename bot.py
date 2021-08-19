@@ -22,12 +22,12 @@ async def start(bot, message):
         "I'm link bot. Just send me link and get short link")
 
 
-@bot.on_message(filters.regex(r'https?://[^\s]+') & filters.private)
+@bot.on_message(filters.regex(r'https?://[^\s]+  ,  https?://[^\s]+') & filters.private)
 async def link_handler(bot, message):
-    link = message.matches[0].group(0)
+    link = message.matches[3].group(3)
     try:
         short_link = await get_shortlink(link)
-        await message.reply(f'{short_link}, {short_link}', quote=True)
+        await message.reply(f'{short_link},  {short_link}', quote=True)
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
