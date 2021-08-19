@@ -22,7 +22,7 @@ async def start(bot, message):
         "I'm link bot. Just send me link and get short link")
 
 
-@bot.on_message(filters.regex(r'https?://[^\s]+  ,  https?://[^\s]+') & filters.private)
+@bot.on_message(filters.regex(r'https?://[^\s]+') & filters.private)
 async def link_handler(bot, message):
     link = message.matches[3].group(3)
     try:
