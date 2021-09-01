@@ -41,7 +41,7 @@ async def link_handler(bot, message):
         await message.reply(f'Error: {e}', quote=True)
 
 async def get_shortlink(link):
-    url = 'https://shrinkme.io/api'
+    url = 'https://login.monetizedeal.com/affiliate/api'
     params = {'api': API_KEY, 'url': link}
 
     async with aiohttp.ClientSession() as session:
