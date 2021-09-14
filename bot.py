@@ -33,7 +33,7 @@ async def link_handler(bot, message):
         
   
 async def get_shortlink(link):
-    url = 'https://login.monetizedeal.com/affiliate/api'
+    url = 'https://cutt.ly/api/api.php'
     params = {'api': API_KEY, 'url': link}
 
     async with aiohttp.ClientSession() as session:
